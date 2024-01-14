@@ -11,8 +11,8 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-button expand="block" id="open-modal-insert"
-    >Tambah Data Pengeluaran</ion-button
+  <ion-button expand="block" id="open-modal-insert" color="success"
+    >Tambah Data</ion-button
   >
   <ion-accordion-group expand="inset">
     <ion-accordion *ngFor="let pengeluaran of pengeluaran">
@@ -48,7 +48,7 @@
     </ion-accordion>
   </ion-accordion-group>
 
-  <!-- modal insert Pengeluaran starts-->
+  <!-- Modal Insert Pengeluaran Starts-->
   <ion-modal trigger="open-modal-insert">
     <ng-template>
       <ion-header>
@@ -56,7 +56,7 @@
           <ion-buttons slot="start">
             <ion-button (click)="cancelInsert()">Cancel</ion-button>
           </ion-buttons>
-          <ion-title>Tambah Data Pengeluaran</ion-title>
+          <ion-title class="ion-text-center">Tambah Data</ion-title>
           <ion-buttons slot="end">
             <ion-button (click)="confirmInsert()" [strong]="true"
               >Confirm</ion-button
@@ -106,10 +106,9 @@
       </ion-content>
     </ng-template>
   </ion-modal>
+  <!-- Modal Insert Pengeluaran Ends -->
 
-  <!-- modal insert Pengeluaran ends -->
-
-  <!-- modal update Pengeluaran starts -->
+  <!-- Modal Update Pengeluaran Starts -->
   <ion-modal trigger="open-modal-update-{{selectedIDPengeluaran}}">
     <ng-template>
       <ion-header>
@@ -117,7 +116,7 @@
           <ion-buttons slot="start">
             <ion-button (click)="cancelUpdate()">Cancel</ion-button>
           </ion-buttons>
-          <ion-title>Update Data Pengeluaran</ion-title>
+          <ion-title class="ion-text-center">Update Data</ion-title>
           <ion-buttons slot="end">
             <ion-button (click)="confirmUpdate()" [strong]="true"
               >Confirm</ion-button
@@ -165,6 +164,6 @@
 <!-- alert delete Pengeluaran starts -->
 <ion-alert
   trigger="delete-alert-{{selectedIDPengeluaran}}"
-  header="Yakin ingin menghapus data Pengeluaran ini?"
+  header="Yakin ingin menghapus data ini?"
   [buttons]="alertButtons"
 ></ion-alert>
