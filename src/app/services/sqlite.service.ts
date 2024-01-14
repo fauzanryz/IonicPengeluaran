@@ -26,7 +26,7 @@ export class SQLiteService {
 
   private async initializeDatabase(): Promise<void> {
     const dbOptions: capConnectionOptions = {
-      database: 'my-database',
+      database: 'testDatabase',
       encrypted: false,
       mode: 'no-encryption',
       readonly: false,
@@ -35,7 +35,7 @@ export class SQLiteService {
     // Use this.db as a reference to CapacitorSQLite for executing queries
     this.db = CapacitorSQLite;
     this.db.createConnection(dbOptions);
-    this.db.open({ database: 'my-database', readonly: false });
+    this.db.open({ database: 'testDatabase', readonly: false });
 
     await this.createTable();
   }
@@ -52,7 +52,7 @@ export class SQLiteService {
 
     // Use CapacitorSQLite for running queries
     await this.db.run({
-      database: 'my-database',
+      database: 'testDatabase',
       statement: query,
       values: [],
     });
@@ -67,7 +67,7 @@ export class SQLiteService {
     const query = `INSERT INTO pengeluaran (tanggal, nominal, tujuan, keterangan) VALUES (?, ?, ?, ?)`;
 
     await this.db.run({
-      database: 'my-database',
+      database: 'testDatabase',
       statement: query,
       values: [tanggal, nominal, tujuan, keterangan],
     });
@@ -76,7 +76,7 @@ export class SQLiteService {
   async getPengeluaran(): Promise<any[]> {
     const query = 'SELECT * FROM pengeluaran';
     const result = await this.db.query({
-      database: 'my-database',
+      database: 'testDatabase',
       statement: query,
       values: [],
     });
@@ -93,7 +93,7 @@ export class SQLiteService {
     const query =
       'UPDATE pengeluaran SET tanggal = ?, nominal = ?, tujuan = ?, keterangan = ? WHERE id = ?';
     await this.db.run({
-      database: 'my-database',
+      database: 'testDatabase',
       statement: query,
       values: [tanggal, nominal, tujuan, keterangan, id],
     });
@@ -102,7 +102,7 @@ export class SQLiteService {
   async deletePengeluaran(id: number): Promise<void> {
     const query = 'DELETE FROM pengeluaran WHERE id = ?';
     await this.db.run({
-      database: 'my-database',
+      database: 'testDatabase',
       statement: query,
       values: [id],
     });
@@ -183,7 +183,6 @@ export class SQLiteService {
     console.log('response', JSON.stringify(response));
   }
 
-  //
   // update pengeluaran ke server
   private async updatePengeluaranNative(
     id: number,
