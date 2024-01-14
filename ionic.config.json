@@ -1,0 +1,7 @@
+{
+  "name": "IonicPengeluaran",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
